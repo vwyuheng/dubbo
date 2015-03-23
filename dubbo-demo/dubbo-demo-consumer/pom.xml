@@ -34,11 +34,140 @@
 			<artifactId>dubbo-demo-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
 			<version>${project.parent.version}</version>
+		</dependency> -->
+		<!-- start @henry.yu-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-config-api</artifactId>
+			<version>${project.parent.version}</version>
 		</dependency>
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-config-spring</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-registry-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-monitor-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-remoting-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-remoting-zookeeper</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+	<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-registry-zookeeper</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-filter-validation</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-filter-cache</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-registry-default</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-monitor-default</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc-default</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc-rmi</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+            <artifactId>dubbo-rpc-injvm</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-remoting-netty</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-registry-multicast</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-container-api</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-container-spring</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-container-logback</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-container-log4j</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-container-jetty</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- end -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>

@@ -12,4 +12,5 @@
     <packaging>jar</packaging>
     <version>3.2.1-fixed-2</version>
     <name>Hessian Lite(Alibaba embed version)</name>
+    
 </project>

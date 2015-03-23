@@ -24,7 +24,7 @@
     <dubbo:application name="demo-provider" />
     
     <!-- 连接注册中心配置 -->
-    <dubbo:registry address="127.0.0.1:4547" />
+    <dubbo:registry address="127.0.0.1:4547" file="/data/application/dubbo/ucenter.dubbo.cache"/>
     
     <!-- 暴露服务协议配置 -->
     <dubbo:protocol name="dubbo" port="20824" />

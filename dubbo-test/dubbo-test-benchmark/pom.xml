@@ -34,6 +34,11 @@
 			<artifactId>dubbo</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring</artifactId>
+				<!-- <version>${spring_version}</version> -->
+			</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -58,12 +63,14 @@
                 </executions>
             </plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 					<encoding>UTF-8</encoding>
+					<fork>true</fork>
+     				<meminitial>256m</meminitial>
+     				<maxmem>256m</maxmem>
 				</configuration>
 			</plugin>
 			<plugin>
