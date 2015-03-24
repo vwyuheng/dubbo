@@ -16,11 +16,9 @@
 package com.alibaba.dubbo.config;
 
 import java.lang.reflect.Method;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -277,7 +275,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         unexported = true;
     }
     
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+   // @SuppressWarnings({ "unchecked", "rawtypes" })
     private void doExportUrls() {
         List<URL> registryURLs = loadRegistries(true);
         for (ProtocolConfig protocolConfig : protocols) {
@@ -285,7 +283,8 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         }
     }
 
-    private void doExportUrlsFor1Protocol(ProtocolConfig protocolConfig, List<URL> registryURLs) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private void doExportUrlsFor1Protocol(ProtocolConfig protocolConfig, List<URL> registryURLs) {
         String name = protocolConfig.getName();
         if (name == null || name.length() == 0) {
             name = "dubbo";
@@ -298,11 +297,13 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         boolean anyhost = false;
         if (NetUtils.isInvalidLocalHost(host)) {
             anyhost = true;
-            try {
-                host = InetAddress.getLocalHost().getHostAddress();
-            } catch (UnknownHostException e) {
-                logger.warn(e.getMessage(), e);
-            }
+            //try {
+            	//TODO 获取ip的出处统一到NetUtils
+            	host = NetUtils.getLocalHost();
+                //host = InetAddress.getLocalHost().getHostAddress();
+           // } catch (UnknownHostException e) {
+               // logger.warn(e.getMessage(), e);
+           // }
             if (NetUtils.isInvalidLocalHost(host)) {
                 if (registryURLs != null && registryURLs.size() > 0) {
                     for (URL registryURL : registryURLs) {

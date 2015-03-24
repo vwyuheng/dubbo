@@ -20,6 +20,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	
+	<dubbo:application name="testProvider" owner="henry.yu" />
+	<dubbo:registry protocol="zookeeper" address="10.144.36.16:2181,10.144.36.16:2182,10.144.36.16:2183"/>
+	<!-- port:服务提供端口,与应用服务器端口一致，cotextpath,参见下面说明 server="servlet" contextpath="dubbo"-->
+	<dubbo:protocol name="dubbo"  port="8081"  />
+	<!-- 使Dubbo在Spring容器初始化完后，再暴露服务 -->
+	<dubbo:provider delay="-1" />
 	
 	<bean id="demoService" class="com.alibaba.dubbo.demo.provider.DemoServiceImpl" />
 	

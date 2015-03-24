@@ -34,13 +34,13 @@
 			<artifactId>dubbo-demo-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
 			<version>${project.parent.version}</version>
-		</dependency> -->
+		</dependency>
 		<!-- start @henry.yu-->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo-config-api</artifactId>
 			<version>${project.parent.version}</version>
@@ -140,7 +140,7 @@
             <artifactId>dubbo-registry-multicast</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
 		
 		<!-- end -->
 		

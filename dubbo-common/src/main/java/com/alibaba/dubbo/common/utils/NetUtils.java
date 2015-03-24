@@ -20,6 +20,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
 import java.util.Map;
@@ -132,6 +133,11 @@ public class NetUtils {
     public static boolean isValidLocalHost(String host) {
     	return ! isInvalidLocalHost(host);
     }
+    
+    public static boolean isValidLocalHost1(String host) {
+    	//return ! isInvalidLocalHost(host) TODO
+    	return ! isInvalidLocalHost(host)&&!isInvalidLocalNetIP(host);
+    }
 
     public static InetSocketAddress getLocalSocketAddress(String host, int port) {
         return isInvalidLocalHost(host) ? 
@@ -200,8 +206,10 @@ public class NetUtils {
     private static InetAddress getLocalAddress0() {
         InetAddress localAddress = null;
         try {
+        	
             localAddress = InetAddress.getLocalHost();
-            if (isValidAddress(localAddress)) {
+            //增加校验通过InetAddress获取的ip的地址,是否为本地网卡的ip
+            if (isValidAddress(localAddress)&&isValidLocalHost1(localAddress.getHostAddress())) {
                 return localAddress;
             }
         } catch (Throwable e) {
@@ -218,6 +226,7 @@ public class NetUtils {
                             while (addresses.hasMoreElements()) {
                                 try {
                                     InetAddress address = addresses.nextElement();
+                                    //TODO get first net ip
                                     if (isValidAddress(address)) {
                                         return address;
                                     }
@@ -301,5 +310,31 @@ public class NetUtils {
 		sb.append(path);
 		return sb.toString();
 	}
+    //校验通过InetAddress获取的ip的地址,是否为本地网卡的ip
+	public static boolean isInvalidLocalNetIP(String host) {
+		try {
+			for (Enumeration<NetworkInterface> en = NetworkInterface
+					.getNetworkInterfaces(); en.hasMoreElements();) {
+				NetworkInterface intf = en.nextElement();
+				for (Enumeration<InetAddress> enumIpAddr = intf
+						.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+					InetAddress inetAddress = enumIpAddr.nextElement();
+					if (!inetAddress.isLoopbackAddress()
+							&& !inetAddress.isLinkLocalAddress()
+							&& inetAddress.isSiteLocalAddress()) {
+						String ip = inetAddress.getHostAddress().toString();
+						if (host.equals(ip))
+							return false;
+					}
+				}
+			}
+		} catch (SocketException ex) {
+		}
+		return true;
+	}
+    public static void main(String[] args) {
+    	//System.out.println(isInvalidLocalHost("202.106.195.30"));
+    	System.out.println(getLocalAddress().getHostAddress());
+    }
     
 }
