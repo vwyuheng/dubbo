@@ -20,7 +20,6 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
-import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
 import java.util.Map;
@@ -328,13 +327,14 @@ public class NetUtils {
 					}
 				}
 			}
-		} catch (SocketException ex) {
-		}
+		} catch (Throwable e) {
+            logger.warn("verify isInvalidLocalNetIP Failed to retriving ip address, " + e.getMessage(), e);
+        }
 		return true;
 	}
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
     	//System.out.println(isInvalidLocalHost("202.106.195.30"));
     	System.out.println(getLocalAddress().getHostAddress());
-    }
+    }*/
     
 }
