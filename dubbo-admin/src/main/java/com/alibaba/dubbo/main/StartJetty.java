@@ -47,9 +47,7 @@ public class StartJetty {
 			log.info("=====================================================================");
 			log.info("=========================dubbo-admin started=========================");
 			log.info("=====================================================================");
-			
-			log.info("========"+webapp.getContextPath());
-			log.info("========"+webapp.getDisplayName());
+			log.info("====================="+webapp.getContextPath()+"=====================");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
