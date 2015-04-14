@@ -44,7 +44,6 @@ public class RpcUtilsTest {
 		RpcUtils.attachInvocationIdIfAsync(url, inv);
 		Assert.assertNull(RpcUtils.getInvocationId(inv));
 	}
-	
 	/**
 	 * 场景：异步调用，默认添加attachement
 	 * 验证：当原始acctachment为null时，不能报错.

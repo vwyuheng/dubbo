@@ -153,6 +153,16 @@ public class Constants {
 
     public static final String  LOADBALANCE_KEY                    = "loadbalance";
 
+    // modified by lishen
+    public static final String EXTENSION_KEY = "extension";
+
+    // modified by lishen
+    public static final String  KEEP_ALIVE_KEY                  = "keepalive";
+
+    // modified by lishen
+    // TODO change to a better name
+    public static final String  OPTIMIZER_KEY                  = "optimizer";
+    public static final boolean DEFAULT_KEEP_ALIVE = true;
     // key for router type, for e.g., "script"/"file",  corresponding to ScriptRouterFactory.NAME, FileRouterFactory.NAME 
     public static final String  ROUTER_KEY                         = "router";
 

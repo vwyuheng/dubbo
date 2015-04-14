@@ -31,6 +31,7 @@ import com.alibaba.dubbo.rpc.RpcInvocation;
  * 
  * @author william.liangf
  */
+//TODO @Activate(group = { Constants.CONSUMER, Constants.PROVIDER }, order = -10000)
 @Activate(group = Constants.CONSUMER, order = -10000)
 public class ConsumerContextFilter implements Filter {
 

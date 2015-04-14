@@ -32,8 +32,9 @@ public class RpcFilterTest extends TestCase
     
 	public void testRpcFilter() throws Exception
 	{
+		
 		DemoService service = new DemoServiceImpl();
-		URL url = URL.valueOf("dubbo://127.0.0.1:9010/com.alibaba.dubbo.rpc.DemoService?service.filter=echo");
+		URL url = URL.valueOf("rest://127.0.0.1:9010/com.alibaba.dubbo.rpc.protocol.dubbo.support.DemoService?service.filter=echo");
 		protocol.export(proxy.getInvoker(service, DemoService.class, url));
 		service = proxy.getProxy(protocol.refer(DemoService.class, url));
 		assertEquals("123",service.echo("123"));
